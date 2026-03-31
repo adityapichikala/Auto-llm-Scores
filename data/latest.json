@@ -3,10 +3,10 @@
   "repos": [
     {
       "repo": "vllm-project/vllm",
-      "stars": 74824,
+      "stars": 74827,
       "delta_24h": 0,
       "forks": 14999,
-      "open_issues": 3997,
+      "open_issues": 3996,
       "language": "Python",
       "description": "A high-throughput and memory-efficient inference and serving engine for LLMs"
     },
@@ -23,7 +23,7 @@
       "repo": "langchain-ai/langchain",
       "stars": 131788,
       "delta_24h": 0,
-      "forks": 21720,
+      "forks": 21721,
       "open_issues": 504,
       "language": "Python",
       "description": "The agent engineering platform"
@@ -39,10 +39,10 @@
     },
     {
       "repo": "unslothai/unsloth",
-      "stars": 58756,
+      "stars": 58757,
       "delta_24h": 0,
       "forks": 4983,
-      "open_issues": 1050,
+      "open_issues": 1051,
       "language": "Python",
       "description": "Unsloth Studio is a web UI for training and running open models like Qwen, DeepSeek, gpt-oss and Gemma locally."
     },
@@ -57,7 +57,7 @@
     },
     {
       "repo": "ggerganov/llama.cpp",
-      "stars": 100379,
+      "stars": 100380,
       "delta_24h": 0,
       "forks": 16078,
       "open_issues": 1320,
@@ -66,7 +66,7 @@
     },
     {
       "repo": "BerriAI/litellm",
-      "stars": 41683,
+      "stars": 41684,
       "delta_24h": 0,
       "forks": 6892,
       "open_issues": 2141,
@@ -75,7 +75,7 @@
     },
     {
       "repo": "ollama/ollama",
-      "stars": 166588,
+      "stars": 166591,
       "delta_24h": 0,
       "forks": 15255,
       "open_issues": 2778,
@@ -85,12 +85,6 @@
   ],
   "hf_trending": [],
   "pypi": [
-    {
-      "package": "langchain",
-      "downloads_last_day": 8027577,
-      "downloads_last_week": 53297110,
-      "downloads_last_month": 223840958
-    },
     {
       "package": "anthropic",
       "downloads_last_day": 3372044,
@@ -114,6 +108,12 @@
       "downloads_last_day": 364942,
       "downloads_last_week": 2185903,
       "downloads_last_month": 10087265
+    },
+    {
+      "package": "vllm",
+      "downloads_last_day": 351197,
+      "downloads_last_week": 2135379,
+      "downloads_last_month": 8081293
     }
   ],
   "lmsys_arena": []
