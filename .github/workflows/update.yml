@@ -1,0 +1,79 @@
+name: Daily AI Tracker Update
+
+on:
+  schedule:
+    - cron: '0 0 * * *'    # Daily at midnight UTC
+  workflow_dispatch:        # Manual trigger
+
+# Prevent overlapping runs
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run data fetcher
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: python scripts/fetch.py
+
+      - name: Generate sparkline charts
+        run: python scripts/generate_charts.py
+
+      - name: Update README
+        run: python scripts/update_readme.py
+
+      - name: Send Discord alert
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: python scripts/alert_discord.py
+
+      - name: Send Weekly Email Digest (Mondays)
+        if: github.event.schedule == '0 0 * * 1' || github.event_name == 'workflow_dispatch'
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          DIGEST_EMAIL_TO: ${{ secrets.DIGEST_EMAIL_TO }}
+        run: python scripts/alert_email.py
+
+      - name: Commit and push changes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add .
+          git diff --staged --quiet || git commit -m 'chore: daily tracker update [skip ci]'
+          git push
+
+  deploy-pages:
+    needs: update
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./web
+      - id: deployment
+        uses: actions/deploy-pages@v4

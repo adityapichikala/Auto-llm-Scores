@@ -1,0 +1,120 @@
+{
+  "date": "2026-03-31",
+  "repos": [
+    {
+      "repo": "vllm-project/vllm",
+      "stars": 74824,
+      "delta_24h": 0,
+      "forks": 14999,
+      "open_issues": 3997,
+      "language": "Python",
+      "description": "A high-throughput and memory-efficient inference and serving engine for LLMs"
+    },
+    {
+      "repo": "huggingface/transformers",
+      "stars": 158601,
+      "delta_24h": 0,
+      "forks": 32698,
+      "open_issues": 2321,
+      "language": "Python",
+      "description": "\ud83e\udd17 Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and "
+    },
+    {
+      "repo": "langchain-ai/langchain",
+      "stars": 131788,
+      "delta_24h": 0,
+      "forks": 21720,
+      "open_issues": 504,
+      "language": "Python",
+      "description": "The agent engineering platform"
+    },
+    {
+      "repo": "openai/openai-python",
+      "stars": 30343,
+      "delta_24h": 0,
+      "forks": 4674,
+      "open_issues": 362,
+      "language": "Python",
+      "description": "The official Python library for the OpenAI API"
+    },
+    {
+      "repo": "unslothai/unsloth",
+      "stars": 58756,
+      "delta_24h": 0,
+      "forks": 4983,
+      "open_issues": 1050,
+      "language": "Python",
+      "description": "Unsloth Studio is a web UI for training and running open models like Qwen, DeepSeek, gpt-oss and Gemma locally."
+    },
+    {
+      "repo": "deepseek-ai/DeepSeek-V3",
+      "stars": 102420,
+      "delta_24h": 0,
+      "forks": 16609,
+      "open_issues": 123,
+      "language": "Python",
+      "description": ""
+    },
+    {
+      "repo": "ggerganov/llama.cpp",
+      "stars": 100379,
+      "delta_24h": 0,
+      "forks": 16078,
+      "open_issues": 1320,
+      "language": "C++",
+      "description": "LLM inference in C/C++"
+    },
+    {
+      "repo": "BerriAI/litellm",
+      "stars": 41683,
+      "delta_24h": 0,
+      "forks": 6892,
+      "open_issues": 2141,
+      "language": "Python",
+      "description": "Python SDK, Proxy Server (AI Gateway) to call 100+ LLM APIs in OpenAI (or native) format, with cost tracking, guardrails"
+    },
+    {
+      "repo": "ollama/ollama",
+      "stars": 166588,
+      "delta_24h": 0,
+      "forks": 15255,
+      "open_issues": 2778,
+      "language": "Go",
+      "description": "Get up and running with Kimi-K2.5, GLM-5, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and other models."
+    }
+  ],
+  "hf_trending": [],
+  "pypi": [
+    {
+      "package": "langchain",
+      "downloads_last_day": 8027577,
+      "downloads_last_week": 53297110,
+      "downloads_last_month": 223840958
+    },
+    {
+      "package": "anthropic",
+      "downloads_last_day": 3372044,
+      "downloads_last_week": 20328667,
+      "downloads_last_month": 79431358
+    },
+    {
+      "package": "sentence-transformers",
+      "downloads_last_day": 1084446,
+      "downloads_last_week": 5413263,
+      "downloads_last_month": 26269705
+    },
+    {
+      "package": "accelerate",
+      "downloads_last_day": 901447,
+      "downloads_last_week": 6360642,
+      "downloads_last_month": 24890219
+    },
+    {
+      "package": "llama-index",
+      "downloads_last_day": 364942,
+      "downloads_last_week": 2185903,
+      "downloads_last_month": 10087265
+    }
+  ],
+  "lmsys_arena": []
+}

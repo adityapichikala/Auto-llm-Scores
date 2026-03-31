@@ -1,0 +1,7 @@
+requests==2.31.0
+beautifulsoup4==4.12.3
+lxml==5.1.0
+matplotlib==3.8.4
+pandas==2.2.1
+python-dotenv==1.0.1
+resend==0.8.0

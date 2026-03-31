@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tracker — Daily AI Pulse</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+            --primary: #38bdf8;
+            --accent: #10b981;
+            --danger: #ef4444;
+            --border: #334155;
+        }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.5;
+        }
+        .container { max-width: 1100px; margin: 0 auto; }
+        header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding-bottom: 20px; 
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 30px;
+        }
+        h1 { margin: 0; font-size: 1.8rem; letter-spacing: -0.025em; }
+        .date-badge { background: var(--card-bg); padding: 4px 12px; border-radius: 20px; color: var(--primary); font-size: 0.9rem; font-weight: 600; border: 1px solid var(--border); }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+        .card { background: var(--card-bg); border-radius: 12px; padding: 24px; border: 1px solid var(--border); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+        .card-full { grid-column: 1 / -1; }
+        h2 { margin: 0 0 20px; font-size: 1.25rem; font-weight: 600; display: flex; align-items: center; gap: 10px; }
+        
+        table { width: 100%; border-collapse: collapse; }
+        th { text-align: left; font-size: 0.75rem; text-transform: uppercase; color: var(--text-dim); padding: 8px 12px; border-bottom: 1px solid var(--border); }
+        td { padding: 12px; border-bottom: 1px solid var(--border); font-size: 0.95rem; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover { background: rgba(255,255,255,0.03); }
+        
+        a { color: var(--primary); text-decoration: none; font-weight: 500; }
+        a:hover { text-decoration: underline; }
+        
+        .trend-up { color: var(--accent); font-weight: 600; }
+        .trend-down { color: var(--danger); font-weight: 600; }
+        .chart-wrap { height: 300px; margin-top: 10px; width: 100%; }
+        
+        footer { margin-top: 60px; text-align: center; color: var(--text-dim); font-size: 0.85rem; padding: 20px; border-top: 1px solid var(--border); }
+        code { background: #00000044; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+        
+        @media (max-width: 640px) {
+            body { padding: 10px; }
+            .card { padding: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 AI Tracker <span style="font-weight: 300; opacity: 0.6;">Pulse</span></h1>
+            <div id="date-target" class="date-badge">Loading...</div>
+        </header>
+
+        <div id="app" class="grid">
+            <div class="card card-full"><h2>⚙️ Synchronizing with data sources...</h2></div>
+        </div>
+
+        <footer>
+            <p>Built by <b>adityapichikala</b> &bull; Data from GitHub, HuggingFace, PyPI, and LMSYS Arena</p>
+            <p><a href="https://github.com/adityapichikala/ai-tracker">View Repository</a> &bull; <a href="data.json">Raw JSON</a></p>
+        </footer>
+    </div>
+
+    <script>
+        fetch('data.json')
+            .then(r => r.json())
+            .then(data => render(data))
+            .catch(e => {
+                document.getElementById('app').innerHTML = `
+                    <div class="card card-full" style="border-color: var(--danger)">
+                        <h2>⚠️ Error loading data</h2>
+                        <p>The dashboard could not fetch <code>data.json</code>. Ensure the GitHub Action has run successfully.</p>
+                        <p style="opacity: 0.6">${e}</p>
+                    </div>`;
+            });
+
+        function render(d) {
+            document.getElementById('date-target').innerText = d.date;
+            
+            const app = document.getElementById('app');
+            app.innerHTML = `
+                <!-- Velocity Chart Section -->
+                <div class="card card-full">
+                    <h2>⚡ GitHub Star Velocity (24h)</h2>
+                    <div class="chart-wrap">
+                        <canvas id="velocityChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Repos Table -->
+                <div class="card">
+                    <h2>📁 Top Repositories</h2>
+                    <table>
+                        <thead>
+                            <tr><th>Repository</th><th>Stars</th><th>24h Δ</th></tr>
+                        </thead>
+                        <tbody>
+                            ${(d.repos || []).slice(0, 8).map(r => `
+                                <tr>
+                                    <td><a href="https://github.com/${r.repo}" target="_blank">${r.repo.split('/')[1]}</a></td>
+                                    <td>${r.stars.toLocaleString()}</td>
+                                    <td class="${r.delta_24h > 0 ? 'trend-up' : (r.delta_24h < 0 ? 'trend-down' : '')}">
+                                        ${r.delta_24h > 0 ? '+' : ''}${r.delta_24h.toLocaleString()}
+                                    </td>
+                                </tr>`).join('')}
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Arena Table -->
+                <div class="card">
+                    <h2>🏆 LMSYS Chatbot Arena</h2>
+                    <table>
+                        <thead>
+                            <tr><th>Rank</th><th>Model</th><th>Elo</th></tr>
+                        </thead>
+                        <tbody>
+                            ${(d.lmsys_arena || []).slice(0, 8).map(a => `
+                                <tr>
+                                    <td>#${a.rank}</td>
+                                    <td style="font-weight: 600;">${a.model}</td>
+                                    <td>${a.elo}</td>
+                                </tr>`).join('')}
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- PyPI Stats -->
+                <div class="card">
+                    <h2>📦 PyPI Downloads (Daily)</h2>
+                    <table>
+                        <thead>
+                            <tr><th>Package</th><th>Downloads</th><th>Weekly</th></tr>
+                        </thead>
+                        <tbody>
+                            ${(d.pypi || []).slice(0, 8).map(p => `
+                                <tr>
+                                    <td><code>${p.package}</code></td>
+                                    <td style="font-weight: 600;">${p.downloads_last_day.toLocaleString()}</td>
+                                    <td style="opacity: 0.7;">${p.downloads_last_week.toLocaleString()}</td>
+                                </tr>`).join('')}
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- HF Trending -->
+                <div class="card">
+                    <h2>🔥 HF Trending Models</h2>
+                    <table>
+                        <thead>
+                            <tr><th>Model ID</th><th>Likes</th></tr>
+                        </thead>
+                        <tbody>
+                            ${(d.hf_trending || []).slice(0, 8).map(m => `
+                                <tr>
+                                    <td style="font-size: 0.85rem"><code>${m.id.split('/').pop()}</code></td>
+                                    <td>⭐ ${m.likes.toLocaleString()}</td>
+                                </tr>`).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+
+            // Initialize Velocity Chart
+            const ctx = document.getElementById('velocityChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: d.repos.slice(0, 10).map(r => r.repo.split('/')[1]),
+                    datasets: [{
+                        label: 'New Stars',
+                        data: d.repos.slice(0, 10).map(r => r.delta_24h),
+                        backgroundColor: '#38bdf8',
+                        borderRadius: 6,
+                        hoverBackgroundColor: '#7dd3fc'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { 
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255,255,255,0.05)' },
+                            ticks: { color: '#94a3b8' }
+                        },
+                        x: { 
+                            grid: { display: false },
+                            ticks: { color: '#94a3b8', font: { size: 10 } }
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
