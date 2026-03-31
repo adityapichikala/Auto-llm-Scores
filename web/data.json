@@ -6,7 +6,7 @@
       "stars": 74829,
       "delta_24h": 0,
       "forks": 14999,
-      "open_issues": 3998,
+      "open_issues": 3997,
       "language": "Python",
       "description": "A high-throughput and memory-efficient inference and serving engine for LLMs"
     },
@@ -21,7 +21,7 @@
     },
     {
       "repo": "langchain-ai/langchain",
-      "stars": 131789,
+      "stars": 131790,
       "delta_24h": 0,
       "forks": 21722,
       "open_issues": 504,
@@ -30,7 +30,7 @@
     },
     {
       "repo": "openai/openai-python",
-      "stars": 30344,
+      "stars": 30343,
       "delta_24h": 0,
       "forks": 4674,
       "open_issues": 362,
@@ -39,7 +39,7 @@
     },
     {
       "repo": "unslothai/unsloth",
-      "stars": 58757,
+      "stars": 58758,
       "delta_24h": 0,
       "forks": 4983,
       "open_issues": 1051,
@@ -50,23 +50,23 @@
       "repo": "deepseek-ai/DeepSeek-V3",
       "stars": 102420,
       "delta_24h": 0,
-      "forks": 16609,
+      "forks": 16608,
       "open_issues": 123,
       "language": "Python",
       "description": ""
     },
     {
       "repo": "ggerganov/llama.cpp",
-      "stars": 100382,
+      "stars": 100384,
       "delta_24h": 0,
-      "forks": 16079,
-      "open_issues": 1321,
+      "forks": 16080,
+      "open_issues": 1322,
       "language": "C++",
       "description": "LLM inference in C/C++"
     },
     {
       "repo": "BerriAI/litellm",
-      "stars": 41684,
+      "stars": 41685,
       "delta_24h": 0,
       "forks": 6892,
       "open_issues": 2141,
@@ -75,10 +75,10 @@
     },
     {
       "repo": "ollama/ollama",
-      "stars": 166592,
+      "stars": 166593,
       "delta_24h": 0,
       "forks": 15255,
-      "open_issues": 2778,
+      "open_issues": 2779,
       "language": "Go",
       "description": "Get up and running with Kimi-K2.5, GLM-5, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and other models."
     }
@@ -87,13 +87,13 @@
     {
       "id": "Jackrong/Qwen3.5-27B-Claude-4.6-Opus-Reasoning-Distilled",
       "downloads": 337432,
-      "likes": 1845,
+      "likes": 1846,
       "pipeline_tag": "image-text-to-text"
     },
     {
       "id": "CohereLabs/cohere-transcribe-03-2026",
       "downloads": 50497,
-      "likes": 610,
+      "likes": 613,
       "pipeline_tag": "automatic-speech-recognition"
     },
     {
@@ -147,6 +147,12 @@
   ],
   "pypi": [
     {
+      "package": "openai",
+      "downloads_last_day": 8777979,
+      "downloads_last_week": 55918695,
+      "downloads_last_month": 223541270
+    },
+    {
       "package": "langchain",
       "downloads_last_day": 8027577,
       "downloads_last_week": 53297110,
@@ -157,18 +163,6 @@
       "downloads_last_day": 3372044,
       "downloads_last_week": 20328667,
       "downloads_last_month": 79431358
-    },
-    {
-      "package": "sentence-transformers",
-      "downloads_last_day": 1084446,
-      "downloads_last_week": 5413263,
-      "downloads_last_month": 26269705
-    },
-    {
-      "package": "accelerate",
-      "downloads_last_day": 901447,
-      "downloads_last_week": 6360642,
-      "downloads_last_month": 24890219
     },
     {
       "package": "llama-index",

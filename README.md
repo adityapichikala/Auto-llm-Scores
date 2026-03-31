@@ -6,31 +6,39 @@
 [![Dashboard](https://img.shields.io/badge/Live_Dashboard-View-blue)](https://adityapichikala.github.io/Auto-llm-Scores)
 
 ## 🔥 Breakout Model 
-No breakout model found.
+`Jackrong/Qwen3.5-27B-Claude-4.6-Opus-Reasoning-Distilled` — 337.4k downloads
 
 ## ⚡ GitHub Velocity (24h Star Change)
 | Repository | Stars | 24h Change | Trend |
 |---|---|---|---|
-| [vllm-project/vllm](https://github.com/vllm-project/vllm) | ⭐ 74.8k | — | ![spark](charts/vllm-project_vllm_spark.png?v=1774975954) |
-| [huggingface/transformers](https://github.com/huggingface/transformers) | ⭐ 158.6k | — | ![spark](charts/huggingface_transformers_spark.png?v=1774975954) |
-| [langchain-ai/langchain](https://github.com/langchain-ai/langchain) | ⭐ 131.8k | — | ![spark](charts/langchain-ai_langchain_spark.png?v=1774975954) |
-| [openai/openai-python](https://github.com/openai/openai-python) | ⭐ 30.3k | — | ![spark](charts/openai_openai-python_spark.png?v=1774975954) |
-| [unslothai/unsloth](https://github.com/unslothai/unsloth) | ⭐ 58.8k | — | ![spark](charts/unslothai_unsloth_spark.png?v=1774975954) |
-| [deepseek-ai/DeepSeek-V3](https://github.com/deepseek-ai/DeepSeek-V3) | ⭐ 102.4k | — | ![spark](charts/deepseek-ai_DeepSeek-V3_spark.png?v=1774975954) |
-| [ggerganov/llama.cpp](https://github.com/ggerganov/llama.cpp) | ⭐ 100.4k | — | ![spark](charts/ggerganov_llama.cpp_spark.png?v=1774975954) |
-| [BerriAI/litellm](https://github.com/BerriAI/litellm) | ⭐ 41.7k | — | ![spark](charts/BerriAI_litellm_spark.png?v=1774975954) |
-| [ollama/ollama](https://github.com/ollama/ollama) | ⭐ 166.6k | — | ![spark](charts/ollama_ollama_spark.png?v=1774975954) |
+| [vllm-project/vllm](https://github.com/vllm-project/vllm) | ⭐ 74.8k | — | ![spark](charts/vllm-project_vllm_spark.png?v=1774977804) |
+| [huggingface/transformers](https://github.com/huggingface/transformers) | ⭐ 158.6k | — | ![spark](charts/huggingface_transformers_spark.png?v=1774977804) |
+| [langchain-ai/langchain](https://github.com/langchain-ai/langchain) | ⭐ 131.8k | — | ![spark](charts/langchain-ai_langchain_spark.png?v=1774977804) |
+| [openai/openai-python](https://github.com/openai/openai-python) | ⭐ 30.3k | — | ![spark](charts/openai_openai-python_spark.png?v=1774977804) |
+| [unslothai/unsloth](https://github.com/unslothai/unsloth) | ⭐ 58.8k | — | ![spark](charts/unslothai_unsloth_spark.png?v=1774977804) |
+| [deepseek-ai/DeepSeek-V3](https://github.com/deepseek-ai/DeepSeek-V3) | ⭐ 102.4k | — | ![spark](charts/deepseek-ai_DeepSeek-V3_spark.png?v=1774977804) |
+| [ggerganov/llama.cpp](https://github.com/ggerganov/llama.cpp) | ⭐ 100.4k | — | ![spark](charts/ggerganov_llama.cpp_spark.png?v=1774977804) |
+| [BerriAI/litellm](https://github.com/BerriAI/litellm) | ⭐ 41.7k | — | ![spark](charts/BerriAI_litellm_spark.png?v=1774977804) |
+| [ollama/ollama](https://github.com/ollama/ollama) | ⭐ 166.6k | — | ![spark](charts/ollama_ollama_spark.png?v=1774977804) |
 
 ## 🏆 LMSYS Chatbot Arena
 | Rank | Model | Elo Score |
 |---|---|---|
+| 1 | deepseek-ai/DeepSeek-R1 | 13,118 likes |
+| 2 | meta-llama/Meta-Llama-3-8B | 6,497 likes |
+| 3 | meta-llama/Llama-3.1-8B-Instruct | 5,640 likes |
+| 4 | bigscience/bloom | 4,988 likes |
+| 5 | meta-llama/Llama-2-7b-chat-hf | 4,722 likes |
+| 6 | openai/gpt-oss-120b | 4,628 likes |
+| 7 | openai/gpt-oss-20b | 4,493 likes |
+| 8 | meta-llama/Llama-2-7b | 4,465 likes |
 
 ## 📦 PyPI Daily Downloads
 | Package | Daily Downloads | Weekly Downloads |
 |---|---|---|
+| `openai` | 8.8M | 55.9M |
+| `langchain` | 8.0M | 53.3M |
 | `anthropic` | 3.4M | 20.3M |
-| `sentence-transformers` | 1.1M | 5.4M |
-| `accelerate` | 901.4k | 6.4M |
 | `llama-index` | 364.9k | 2.2M |
 | `vllm` | 351.2k | 2.1M |
 
