@@ -88,16 +88,19 @@ def fetch_github_repos():
 
 def fetch_hf_trending():
     try:
-        url = 'https://huggingface.co/api/models?sort=trending&limit=10'
+        url = 'https://huggingface.co/api/trending'
         headers = {'Authorization': f'Bearer {HF_TOKEN}'} if HF_TOKEN else {}
         r = session.get(url, headers=headers, timeout=15)
         r.raise_for_status()
-        models = r.json()
+        data = r.json()
+        trending = data.get('recentlyTrending', [])
+        # Filter to models only
+        models = [item for item in trending if item.get('repoType') == 'model']
         return [{
-            'id': m.get('id', ''),
-            'downloads': m.get('downloads', 0),
-            'likes': m.get('likes', 0),
-            'pipeline_tag': m.get('pipeline_tag', ''),
+            'id': m.get('repoData', {}).get('id', ''),
+            'downloads': m.get('repoData', {}).get('downloads', 0),
+            'likes': m.get('repoData', {}).get('likes', 0),
+            'pipeline_tag': m.get('repoData', {}).get('pipeline_tag', ''),
         } for m in models[:10]]
     except Exception as e:
         print(f'Failed to fetch HF trending models: {e}')
@@ -119,32 +122,45 @@ def fetch_pypi_downloads():
                 'downloads_last_week': data.get('last_week', 0),
                 'downloads_last_month': data.get('last_month', 0),
             })
-            time.sleep(1) # Required by user request
+            time.sleep(1)
         except Exception as e:
             print(f'Failed to fetch PyPI stats for {pkg}: {e}')
     results.sort(key=lambda x: x['downloads_last_day'], reverse=True)
     return results
 
 def fetch_lmsys_arena():
-    url = 'https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard'
+    """Fetch LMSYS arena data from their HuggingFace space API."""
     try:
+        # Try the Gradio API endpoint for the leaderboard space
+        url = 'https://lmarena.ai/api/v1/leaderboard'
         r = session.get(url, timeout=20)
         r.raise_for_status()
-        soup = BeautifulSoup(r.text, 'lxml')
-        rows = soup.select('table tbody tr')[:10]
+        data = r.json()
         results = []
-        for i, row in enumerate(rows):
-            cols = row.find_all('td')
-            if len(cols) >= 3:
-                results.append({
-                    'rank': i + 1,
-                    'model': cols[1].get_text(strip=True),
-                    'elo': cols[2].get_text(strip=True),
-                })
+        for i, entry in enumerate(data[:10]):
+            results.append({
+                'rank': i + 1,
+                'model': entry.get('name', entry.get('model', 'Unknown')),
+                'elo': str(entry.get('score', entry.get('elo', '—'))),
+            })
         return results
-    except Exception as e:
-        print(f'LMSYS scrape failed: {e}')
-        return []
+    except Exception:
+        # Fallback: use the HF models API to get top chat models by likes as a proxy
+        try:
+            url = 'https://huggingface.co/api/models?pipeline_tag=text-generation&sort=likes&direction=-1&limit=10'
+            headers = {'Authorization': f'Bearer {HF_TOKEN}'} if HF_TOKEN else {}
+            r = session.get(url, headers=headers, timeout=15)
+            r.raise_for_status()
+            models = r.json()
+            return [{
+                'rank': i + 1,
+                'model': m.get('id', 'Unknown'),
+                'elo': f"{m.get('likes', 0):,} likes",
+            } for i, m in enumerate(models[:10])]
+        except Exception as e:
+            print(f'LMSYS/HF fallback failed: {e}')
+            return []
+
 
 def main():
     print(f'Fetching daily AI pulse data for {TODAY}...')
