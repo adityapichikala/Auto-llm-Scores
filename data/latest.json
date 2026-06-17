@@ -1,215 +1,209 @@
 {
-  "date": "2026-06-16",
+  "date": "2026-06-17",
   "repos": [
     {
       "repo": "vllm-project/vllm",
-      "stars": 82990,
+      "stars": 83104,
       "delta_24h": 0,
-      "forks": 18097,
-      "open_issues": 5400,
+      "forks": 18128,
+      "open_issues": 5408,
       "language": "Python",
       "description": "A high-throughput and memory-efficient inference and serving engine for LLMs"
     },
     {
       "repo": "huggingface/transformers",
-      "stars": 161618,
+      "stars": 161647,
       "delta_24h": 0,
-      "forks": 33517,
-      "open_issues": 2436,
+      "forks": 33526,
+      "open_issues": 2432,
       "language": "Python",
       "description": "\ud83e\udd17 Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and "
     },
     {
       "repo": "langchain-ai/langchain",
-      "stars": 139413,
+      "stars": 139505,
       "delta_24h": 0,
-      "forks": 23103,
-      "open_issues": 407,
+      "forks": 23121,
+      "open_issues": 416,
       "language": "Python",
       "description": "The agent engineering platform."
     },
     {
       "repo": "openai/openai-python",
-      "stars": 31020,
+      "stars": 31024,
       "delta_24h": 0,
       "forks": 4838,
-      "open_issues": 513,
+      "open_issues": 510,
       "language": "Python",
       "description": "The official Python library for the OpenAI API"
     },
     {
       "repo": "unslothai/unsloth",
-      "stars": 66594,
+      "stars": 66659,
       "delta_24h": 0,
-      "forks": 5970,
-      "open_issues": 1301,
+      "forks": 5977,
+      "open_issues": 1321,
       "language": "Python",
       "description": "Unsloth Studio is a web UI for training and running open models like Gemma 4, Qwen3.6, DeepSeek, gpt-oss locally."
     },
     {
       "repo": "deepseek-ai/DeepSeek-V3",
-      "stars": 103753,
+      "stars": 103751,
       "delta_24h": 0,
-      "forks": 16734,
+      "forks": 16735,
       "open_issues": 255,
       "language": "Python",
       "description": ""
     },
     {
       "repo": "ggerganov/llama.cpp",
-      "stars": 116710,
+      "stars": 116874,
       "delta_24h": 0,
-      "forks": 19611,
-      "open_issues": 1852,
+      "forks": 19647,
+      "open_issues": 1864,
       "language": "C++",
       "description": "LLM inference in C/C++"
     },
     {
       "repo": "BerriAI/litellm",
-      "stars": 50508,
+      "stars": 50626,
       "delta_24h": 0,
-      "forks": 8903,
-      "open_issues": 3455,
+      "forks": 8933,
+      "open_issues": 3416,
       "language": "Python",
       "description": "Python SDK, Proxy Server (AI Gateway) to call 100+ LLM APIs in OpenAI (or native) format, with cost tracking, guardrails"
     },
     {
       "repo": "ollama/ollama",
-      "stars": 174264,
+      "stars": 174338,
       "delta_24h": 0,
-      "forks": 16637,
-      "open_issues": 3437,
+      "forks": 16656,
+      "open_issues": 3446,
       "language": "Go",
       "description": "Get up and running with Kimi-K2.6, GLM-5.1, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and other models."
     }
   ],
   "hf_trending": [
     {
+      "id": "yuxinlu1/gemma-4-12B-coder-fable5-composer2.5-v1-GGUF",
+      "downloads": 60921,
+      "likes": 1191,
+      "pipeline_tag": "text-generation"
+    },
+    {
       "id": "google/diffusiongemma-26B-A4B-it",
-      "downloads": 311788,
-      "likes": 884,
+      "downloads": 375974,
+      "likes": 950,
       "pipeline_tag": "image-text-to-text"
     },
     {
       "id": "MiniMaxAI/MiniMax-M3",
-      "downloads": 14312,
-      "likes": 838,
+      "downloads": 25064,
+      "likes": 1019,
       "pipeline_tag": "image-text-to-text"
     },
     {
       "id": "moonshotai/Kimi-K2.7-Code",
-      "downloads": 56750,
-      "likes": 746,
+      "downloads": 102206,
+      "likes": 806,
       "pipeline_tag": "image-text-to-text"
     },
     {
-      "id": "yuxinlu1/gemma-4-12B-coder-fable5-composer2.5-v1-GGUF",
-      "downloads": 20207,
-      "likes": 645,
+      "id": "zai-org/GLM-5.2",
+      "downloads": 0,
+      "likes": 470,
       "pipeline_tag": "text-generation"
     },
     {
       "id": "nvidia/LocateAnything-3B",
-      "downloads": 86968,
-      "likes": 2057,
+      "downloads": 98698,
+      "likes": 2104,
       "pipeline_tag": "image-text-to-text"
     },
     {
-      "id": "CohereLabs/North-Mini-Code-1.0",
-      "downloads": 11145,
-      "likes": 390,
-      "pipeline_tag": "text-generation"
-    },
-    {
       "id": "prefeitura-rio/Rio-3.5-Open-397B",
-      "downloads": 188723,
-      "likes": 303,
+      "downloads": 189744,
+      "likes": 315,
       "pipeline_tag": "image-text-to-text"
     },
     {
       "id": "unsloth/diffusiongemma-26B-A4B-it-GGUF",
-      "downloads": 107243,
-      "likes": 276,
+      "downloads": 120435,
+      "likes": 289,
       "pipeline_tag": "image-text-to-text"
+    },
+    {
+      "id": "CohereLabs/North-Mini-Code-1.0",
+      "downloads": 12129,
+      "likes": 412,
+      "pipeline_tag": "text-generation"
     },
     {
       "id": "HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive",
-      "downloads": 2697882,
-      "likes": 1855,
+      "downloads": 2716651,
+      "likes": 1892,
       "pipeline_tag": "image-text-to-text"
-    },
-    {
-      "id": "google/gemma-4-12B-it",
-      "downloads": 1160435,
-      "likes": 1035,
-      "pipeline_tag": "any-to-any"
     }
   ],
   "pypi": [
     {
       "package": "openai",
-      "downloads_last_day": 13289207,
-      "downloads_last_week": 73181976,
-      "downloads_last_month": 324145706
-    },
-    {
-      "package": "langchain",
-      "downloads_last_day": 12065860,
-      "downloads_last_week": 66716499,
-      "downloads_last_month": 313544307
+      "downloads_last_day": 13520630,
+      "downloads_last_week": 73433255,
+      "downloads_last_month": 330257860
     },
     {
       "package": "transformers",
-      "downloads_last_day": 6076210,
-      "downloads_last_week": 33078708,
-      "downloads_last_month": 147672401
+      "downloads_last_day": 6254711,
+      "downloads_last_week": 33344095,
+      "downloads_last_month": 150511466
     },
     {
       "package": "anthropic",
-      "downloads_last_day": 5641140,
-      "downloads_last_week": 30741714,
-      "downloads_last_month": 134912850
+      "downloads_last_day": 5991087,
+      "downloads_last_week": 30808810,
+      "downloads_last_month": 137847458
     },
     {
       "package": "sentence-transformers",
-      "downloads_last_day": 1121730,
-      "downloads_last_week": 6145182,
-      "downloads_last_month": 27586872
+      "downloads_last_day": 1192303,
+      "downloads_last_week": 6175372,
+      "downloads_last_month": 28129809
     },
     {
       "package": "accelerate",
-      "downloads_last_day": 908731,
-      "downloads_last_week": 4883214,
-      "downloads_last_month": 23031372
+      "downloads_last_day": 970205,
+      "downloads_last_week": 4939706,
+      "downloads_last_month": 23419137
     },
     {
       "package": "llama-index",
-      "downloads_last_day": 292193,
-      "downloads_last_week": 1613104,
-      "downloads_last_month": 10212136
+      "downloads_last_day": 300705,
+      "downloads_last_week": 1601447,
+      "downloads_last_month": 10181916
     },
     {
       "package": "vllm",
-      "downloads_last_day": 179688,
-      "downloads_last_week": 1131089,
-      "downloads_last_month": 5809917
+      "downloads_last_day": 203095,
+      "downloads_last_week": 1079916,
+      "downloads_last_month": 5868504
     }
   ],
   "lmsys_arena": [
     {
       "rank": 1,
       "model": "deepseek-ai/DeepSeek-R1",
-      "elo": "13,394 likes"
+      "elo": "13,393 likes"
     },
     {
       "rank": 2,
       "model": "meta-llama/Meta-Llama-3-8B",
-      "elo": "6,579 likes"
+      "elo": "6,578 likes"
     },
     {
       "rank": 3,
       "model": "meta-llama/Llama-3.1-8B-Instruct",
-      "elo": "6,085 likes"
+      "elo": "6,097 likes"
     },
     {
       "rank": 4,
@@ -218,28 +212,28 @@
     },
     {
       "rank": 5,
+      "model": "deepseek-ai/DeepSeek-V4-Pro",
+      "elo": "4,896 likes"
+    },
+    {
+      "rank": 6,
       "model": "openai/gpt-oss-120b",
       "elo": "4,888 likes"
     },
     {
-      "rank": 6,
-      "model": "deepseek-ai/DeepSeek-V4-Pro",
-      "elo": "4,866 likes"
-    },
-    {
       "rank": 7,
       "model": "meta-llama/Llama-2-7b-chat-hf",
-      "elo": "4,780 likes"
+      "elo": "4,782 likes"
     },
     {
       "rank": 8,
       "model": "openai/gpt-oss-20b",
-      "elo": "4,708 likes"
+      "elo": "4,710 likes"
     },
     {
       "rank": 9,
       "model": "meta-llama/Meta-Llama-3-8B-Instruct",
-      "elo": "4,604 likes"
+      "elo": "4,605 likes"
     },
     {
       "rank": 10,
